@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "proofkit"
+version = "0.1.0"
+description = "Proof primitives for agent pipelines: turn 'the agent says it is done' into a three-state verdict you can gate on."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "proofkit contributors" }]
+keywords = ["agents", "verification", "attestation", "provenance", "idempotency", "evaluation"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Topic :: Software Development :: Testing",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/chenhz01/proofkit"
+Issues = "https://github.com/chenhz01/proofkit/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/proofkit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

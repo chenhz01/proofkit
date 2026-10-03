@@ -1,0 +1,2 @@
+# This repo is checked by contrib-preflight in its own CI; see that repo's
+# .cpreflightignore for the rationale behind each suppression class.
