@@ -19,6 +19,20 @@ address while reviewing agent pipelines in other projects.
   `set_ops` helpers.
 - `verdict` — the shared three-state `Verdict` / `Proof` types.
 
+### Fixed after the first release candidate
+
+- `py.typed` was missing while the metadata advertised `Typing :: Typed`, so the
+  package's annotations were invisible to type checkers despite the classifier.
+  The PEP 561 marker now ships with the package, and a regression test fails if
+  the marker and the classifier ever disagree again.
+- CI never ran on a version tag, which would have made the `publish` job
+  unreachable, and that job lacked `id-token: write`, which Trusted publishing
+  needs to mint its OIDC token. Both are fixed; the tag trigger and the
+  permission are now covered by the same review as any other change.
+- CI pinned `actions/download-artifact` to `fa0a91b8…` as `v4`; that commit is a
+  2024-07-05 v3-era commit. v4 resolves to `d3f86a10…` (2025-04-24) and the pin
+  now matches.
+
 ### Fixed during development
 
 - `attest.stamp` produced a region that differed from the hashed region by a
